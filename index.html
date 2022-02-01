@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="main">
+
+        <section class="film-section">
+            
+            <div class="container">
+                
+                <form class="form">
+                    
+                    <select name = 'form-select'class="form__select"></select>
+                    
+                    <button class="form__btn" type="submit">Search</button>
+                    
+                </form>
+                
+                <ul class="films__list"></ul>
+                
+                <template id="film-template">
+                    
+                    <li class="films">
+                        
+                        <h3 class="films__title">Shazam</h3>
+                        
+                        <img
+                        class="films__img"
+                        src="https://image.tmdb.org/t/p/w500/xnopI5Xtky18MPhK40cZAGAOVeV.jpg"
+                        alt="shazam's poster"
+                        width="380"
+                        height="600">
+                        
+                        <p class="films__overview">
+                            "A boy is given the ability to become an adult superhero
+                            in times of need with a single magic word."
+                        </p>
+                        
+                        <time class="films__time"></time>
+                        
+                        <p class="films__genre-text"></p>
+                        
+                    </li>
+                    
+                </template>
+                
+            </div>
+
+        </section>
+
+    </main>
+    <script src="./films.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
