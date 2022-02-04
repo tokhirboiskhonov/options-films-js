@@ -9,16 +9,28 @@
 </head>
 <body>
     <main class="main">
-
+        
         <section class="film-section">
             
-            <div class="container">
+            <div class="container bg">
                 
                 <form class="form">
                     
                     <select name = 'form-select'class="form__select"></select>
-                    
+
+                    <select class="film-select-sort">
+                        <option value="a_z">A-Z</option>
+                        <option value="z_a">Z-A</option>
+                        <option value="old_new">OLD-NEW</option>
+                        <option value="new_old">NEW-OLD</option>
+                    </select>
+            
                     <button class="form__btn" type="submit">Search</button>
+                    
+                    <button onclick="funcBtnGreen()">darkcyan</button>
+                    
+                    <button onclick="funcBtnRed()">chocolate</button>
+                    
                     
                 </form>
                 
@@ -51,9 +63,9 @@
                 </template>
                 
             </div>
-
+            
         </section>
-
+        
     </main>
     <script src="./films.js"></script>
     <script src="./main.js"></script>

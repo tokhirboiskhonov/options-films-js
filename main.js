@@ -1,13 +1,19 @@
-const elFilmsList = document.querySelector('.films__list');
+const elFilmsList = document.querySelector
+('.films__list');
 const elFilmTemplate = document.querySelector('#film-template').content;
 const elForm = document.querySelector('.form');
-const elFormSelect = document.querySelector('.form__select');
+const elFormSelect = document.querySelector
+('.form__select');
+const elFilmSelectSort = document.querySelector('.film-select-sort');
 const elFormBtn = document.querySelector('.form__btn')
+const elDiv = document.querySelector('.bg');
 
 elForm.addEventListener('submit', (e)=>{
     e.preventDefault();
 
     let select = elFormSelect.value;
+
+    
 
     let newarray = [];
 
@@ -19,11 +25,58 @@ elForm.addEventListener('submit', (e)=>{
             newarray.push(film);
         }
     })
-
+    
     renderFilms(newarray, elFilmsList);
-
-
-})
+    
+    let sortValue = elFilmSelectSort.value.trim();
+    
+    if (sortValue === 'a_z') {
+        newarray.sort((a, b) => {
+            if (a.title > b.title) {
+                return 1;
+			} else if (a.title < b.title) {
+                return -1;
+			} else {
+				return 0;
+			}
+		});
+	} else if (sortValue === 'z_a') {
+        newarray.sort((a, b) => {
+            if (a.title < b.title) {
+                return 1;
+			} else if (a.title > b.title) {
+                return -1;
+			} else {
+                return 0;
+			}
+		});
+	} else if (sortValue === 'old_new') {
+        newarray.sort((a, b) => {
+            if (a.release_date > b.release_date) {
+                return 1;
+			} else if (a.release_date < b.release_date) {
+                return -1;
+			} else {
+                return 0;
+			}
+		});
+	} else if (sortValue === 'new_old') {
+        newarray.sort((a, b) => {
+            if (a.release_date < b.release_date) {
+                return 1;
+			} else if (a.release_date > b.release_date) {
+                return -1;
+			} else {
+                return 0;
+			}
+		});
+	}
+    
+    renderFilms(newarray, elFilmsList);
+    
+    
+    
+});
 
 let genresArr = ['All', 'Action', 'Comedy', 'Fantasy', 'Adventure', 'Science Fiction', 'Thriller', 'Horror', 'Animation', 'Family', 'Documentary', 'Mystery', 'Drama', 'TV Movie', 'Music', 'Crime', 'History', 'Romance'];
 
@@ -37,6 +90,30 @@ function renderOption (genresArr, element) {
 }
 
 renderOption(genresArr, elFormSelect)
+
+// localStorage
+
+let theme = window.localStorage.getItem("theme")
+
+if(theme){
+    elDiv.style.backgroundColor = theme
+}else{
+    elDiv.style.backgroundColor = "white"
+}
+
+
+function funcBtnGreen(){
+    window.localStorage.setItem("theme", "darkcyan")
+    window.location.reload()
+}
+function funcBtnRed(){
+    window.localStorage.setItem("theme", "chocolate")
+    window.location.reload()
+}
+
+// window.localStorage.clear()
+
+// ===========================
 
 function normalizeDate (dateFormat) {
 
