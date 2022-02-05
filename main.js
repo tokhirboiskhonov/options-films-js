@@ -13,8 +13,6 @@ elForm.addEventListener('submit', (e)=>{
 
     let select = elFormSelect.value;
 
-    
-
     let newarray = [];
 
     films.forEach(film => {
@@ -73,8 +71,6 @@ elForm.addEventListener('submit', (e)=>{
 	}
     
     renderFilms(newarray, elFilmsList);
-    
-    
     
 });
 
